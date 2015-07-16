@@ -15,5 +15,5 @@ if __name__ == '__main__':
                 try:
                     os.rename(path, "{0}/{1} - {2}.mp3".format(options.dir, mp3_file.tag.artist, mp3_file.tag.title))
                     print "{0} was successfully renamed using ID3 tags.".format(path)
-                except Exception as e:
-                    "{0} could not be renamed.  Exception: {1}".format(path, e)
+                except OSError as ose:
+                    "{0} could not be renamed.  Exception message: {1}".format(path, ose)
